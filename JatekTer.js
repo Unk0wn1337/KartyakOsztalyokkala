@@ -1,14 +1,14 @@
-
+import Kartya from "./Kartya.js";
 import { kartyaLista } from "./kepek.js";
 class JatekTer{
     #kartyaLista = [];
     #kivalasztottKartyaLista = [];
 
-    constructor(kartyaLista){
-        const szuloELEM = $("article");
+    constructor(){
+        const szuloELEM = $("#jatekTerem");
         this.#kartyaLista = kartyaLista;
         for (let index = 0; index < kartyaLista.length; index++) {
-            const Lapok = new JatekTer(szuloELEM,kartyaLista[index]);
+            const kartya = new Kartya(szuloELEM,kartyaLista[index]);
         }
             
 
