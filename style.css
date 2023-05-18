@@ -5,6 +5,8 @@ main{
 #jatekTerem{
     display: grid;
     grid-template-columns: 3fr 3fr 3fr;
+    
+
 }
 h1{
     text-align: center;
