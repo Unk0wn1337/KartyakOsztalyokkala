@@ -1,27 +1,30 @@
+
+import { kartyaLista } from "./kepek.js";
+
 class Kartya{
     #fajlnev;
+    #id;
     #allapot;
     #blokkolt;
     #divElem;
     #imgElem;
    
-       constructor(szuloELEM,fajlnev){
-           this.szuloELEM = szuloELEM;
-           this.#fajlnev = fajlnev;
+       constructor(id, fajlnev, szuloELEM){
            this.#allapot = false;
+           this.#id = id;
+           this.#fajlnev = fajlnev;
            szuloELEM.append(
                `<div class "kartyak">
-                   <img src="./kepek/hatter.jpg" alt="fajl">
+               <img src="kepek/hatter.jpg" alt="fajl">
                </div>`
                
                );
             this.#divElem = szuloELEM.children("div:last-child");
             this.#imgElem = this.#divElem.children("img");
-            this.#divElem.on("click", () => {
+            this.#imgElem.on("click",() => {
                 this.#kattintasTrigger();
-                this.#setLap();
-                console.log(); 
             })
+           
 
    
        }
@@ -42,14 +45,15 @@ class Kartya{
         }
 
         }
+        getId(){
+            return this.#id;
+        }
         
 
     #kattintasTrigger(){
-           const fordit = new CustomEvent("kepreKattintas", {detail: this});
-           window.dispatchEvent(fordit);
-            
-   
-       }
+        const fordit = new CustomEvent("fordit", { detail: this });
+        window.dispatchEvent(fordit);
+      }
    
    }
    
